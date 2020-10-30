@@ -63,9 +63,21 @@ we want to simulate this model using `rho=1.5`, `alpha=0.9` and
 $ python sirv.py 1.5 0.9 0.1
 ```
 
+If you run this simulation with R values `R={0, 0.1, 0.2, 0.3 ,0.4}`,
+and plot the curves together, you should getting the graph shown below
+(see the _matplotlib_ documentation for how to add
+[axis labels](https://matplotlib.org/3.1.0/gallery/pyplots/fig_axes_labels_simple.html) and [legends](https://matplotlib.org/tutorials/intermediate/legend_guide.html)).
+
+![](sirv.png)
+
+Seeing this plot, think about why the curves change with the fraction
+of vaccinated population `R` and why is it not necessary to vaccinate
+the entire population to end with the simulated infectious disease.
+
 Your assignment repo should have the following files:
 
   1. This `README.md` file.
+  2. The `sirv.png` image file with the plot shown above.
   2. The `src` directory with the initial files of the assignment repo.
   3. The `test` directory with the initial files of the assignment repo.
 
