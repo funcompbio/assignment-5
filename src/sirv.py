@@ -47,7 +47,7 @@ if __name__ == "__main__" :
         t = np.arange(0, 30, 1)
 
         ## call the 'main()' function
-        I = main(t, float(sys.argv[1]), float(sys.argv[2], float(sys.argv[3]))
+        I = main(t, float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]))
 
         ## print resulting values for each time point
         print("t,dI")
