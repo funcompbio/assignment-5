@@ -9,7 +9,7 @@ the organization account for FCB in the academic year 2020-21 at
 [https://github.com/funcompbio2020](https://github.com/funcompbio2020)
 using the submission link provided at the FCB Moodle site.
 
-Once you have cloned the GitHub repo which has `assignment-4` and your
+Once you have cloned the GitHub repo which has `assignment-5` and your
 GitHub username as repo name, then you can work on it in your local disk
 and _push_ your changes whenever you like, but make sure that you have pushed
 the last version of your assignment before the deadline. There is no
@@ -29,7 +29,7 @@ which will help you to automatically test whether your Python program is
 correctly working after every _push_. To work with this feature you
 need to edit your program in the existing files `src/sir.py` and
 `src/sirv.py`, and leave the rest of the files and directory structure
-intact. The files `src/sir.py` and 'src/sirv.py` are templates that
+intact. The files `src/sir.py` and `src/sirv.py` are templates that
 contain instructions written as comments, indicating where should you
 edit your code.
 
@@ -73,7 +73,7 @@ Eventually, you may encounter that Python automatically creates a directory call
 `__pycache__`, you may ignore that directory since this template is already
 prepared to ignore that directory by including it into a `.gitignore` file that
 informs Git to avoid putting certain files under version control. In any case,
-**you should only be editing the files `src/sir.py` and `src/sirv.py**.
+**you should only be editing the files `src/sir.py` and `src/sirv.py`**.
 
 ## Evaluation rubric
 
