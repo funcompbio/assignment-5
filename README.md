@@ -64,14 +64,14 @@ $ python sirv.py 1.5 0.9 0.1
 ```
 
 If you run this simulation with R values `R={0, 0.1, 0.2, 0.3 ,0.4}`,
-and plot the curves together, you should getting the graph shown below
-(see the _matplotlib_ documentation for how to add
+and plot the resulting curves together, you should be getting the graph
+shown below (see the _matplotlib_ documentation for how to add
 [axis labels](https://matplotlib.org/3.1.0/gallery/pyplots/fig_axes_labels_simple.html) and [legends](https://matplotlib.org/tutorials/intermediate/legend_guide.html)).
 
 ![](sirv.png)
 
 Seeing this plot, think about why the curves change with the fraction
-of vaccinated population `R` and why is it not necessary to vaccinate
+of vaccinated population `R` and why is not necessary to vaccinate
 the entire population to end with the simulated infectious disease.
 
 Your assignment repo should have the following files:
