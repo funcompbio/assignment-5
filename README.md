@@ -84,6 +84,8 @@ and [legends](https://matplotlib.org/tutorials/intermediate/legend_guide.html)).
 Seeing this plot, think about why the curves change with the fraction
 of vaccinated population `R` and why is not necessary to vaccinate
 the entire population to end with the simulated infectious disease.
+**You need not to add your own plots to the repo, you should produce
+these plots only for your own understanding of the mathematics behind**.
 
 Your assignment repo should have the following files:
 
