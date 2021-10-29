@@ -1,12 +1,14 @@
-# Assignment 5 - FCB 2020
-### Deadline: 06/11/2020 - 23:59
+[![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
+
+# Assignment 5 - FCB 2021
+### Deadline: 05/11/2021 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
-the organization account for FCB in the academic year 2020-21 at
-[https://github.com/funcompbio2020](https://github.com/funcompbio2020)
+the organization account for FCB in the academic year 2021-22 at
+[https://github.com/funcompbio2021](https://github.com/funcompbio2021)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-5` and your
@@ -24,12 +26,20 @@ assignment will have a penalty.
 The goal of this assignment is to **implement in Python a simplified SIR
 model of spreading infectious diseases.**
 
-This assignment incorporates [GitHub Classroom Autograding](https://mspoweruser.com/github-classroom-autograding-feature),
-which will help you to automatically test whether your Python program is
-correctly working after every _push_. To work with this feature you
-need to edit your program in the existing files `src/sir.py` and
-`src/sirv.py`, and leave the rest of the files and directory structure
-intact. The files `src/sir.py` and `src/sirv.py` are templates that
+This assignment incorporates an autograding feature using a so-called
+[GitHub Actions Worflow](https://github.com/features/actions), which will
+help you to automatically test whether your Python program is
+correctly working after every _push_. More concretely, a few minutes after
+you _pushed_ your changes to your remote GitHub repo, the badge labeled
+`FCB-Python-autograding` on top of this README file will be red and display
+the message `failing` if the autograding has not been successful, and
+green with the message `passing` otherwise. You may click on badge to
+look at output of the autograding tests to understand why it has failed,
+if that was the case. This feature provides you with
+[formative assessment](https://en.wikipedia.org/wiki/Formative_assessment)
+and to work with it you need to edit your program in the existing files
+`src/sir.py` and `src/sirv.py`, and leave the rest of the files and directory
+structure intact. The files `src/sir.py` and `src/sirv.py` are templates that
 contain instructions written as comments, indicating where should you
 edit your code.
 
@@ -49,7 +59,7 @@ $ python sir.py 1.5 0.9
 
 In the second script `src/sirv.py` you should implement the simplified
 SIR model that incorporates the fraction of the population `R` that has
-been vaccinated, corresponding to the differential equation:
+been **vaccinated**, corresponding to the differential equation:
 
 <img src="https://render.githubusercontent.com/render/math?math=\frac{dI}{dt}=\rho\cdot I \cdot (1 - R - I) - \alpha \cdot I">
 
@@ -66,7 +76,8 @@ $ python sirv.py 1.5 0.9 0.1
 If you run this simulation with R values `R={0, 0.1, 0.2, 0.3 ,0.4}`,
 and plot the resulting curves together, you should be getting the graph
 shown below (see the _matplotlib_ documentation for how to add
-[axis labels](https://matplotlib.org/3.1.0/gallery/pyplots/fig_axes_labels_simple.html) and [legends](https://matplotlib.org/tutorials/intermediate/legend_guide.html)).
+[axis labels](https://matplotlib.org/3.1.0/gallery/pyplots/fig_axes_labels_simple.html)
+and [legends](https://matplotlib.org/tutorials/intermediate/legend_guide.html)).
 
 ![](sirv.png)
 
