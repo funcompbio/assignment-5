@@ -15,7 +15,5 @@ jobs:
         run: python3 -m py_compile src/cagrepmax.py ; rm -f src/cagrepmax.pyc
       - name: Checking for FASTA files
         run: fnames=(affected_individual1_40_CAGs.fa affected_individual2_54_CAGs.fa affected_individual3_87_CAGs.fa unaffected_individual1_22_CAGs.fa unaffected_individual2_27_CAGs.fa unaffected_individual3_28_CAGs.fa) ; md5cs=(833a31c25eb852b42ca23b4e2408b26b c37ac0c3b4f59bb9b8e84d17864414c6 c8f65b8ef1f9f9a520e8cb24207a5ead a6866cf3c972a77cf5e8ee8aca7d4c80 a5624c7fbb551fee11462b5c36b08249 a27ccd7d137f08e4a7fbb92c7d28328b) ; for i in `seq 0 $((${#fnames[@]}-1))` ; do { if [ -e FASTA/${fnames[$i]} ]; then { if [ `md5sum FASTA/${fnames[$i]} | cut -d ' ' -f 1` == ${md5cs[$i]} ] ; then exit 0 ; else { echo WRONG FILE FASTA/${fnames[$i]} >&2 ; exit 1 ; } fi } ; else { echo MISSING FILE FASTA/${fnames[$i]} >&2 ; exit 1 ; } ; fi ; } ; done
-      - name: Calculate gold standard
-        run: grep -v '>' HBB.fa | tr -d '\n' | fold -2 | grep -v '^.$'| sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold1.csv ; grep -v '>' HBB.fa | tr -d '\n' | sed 's/^.//' | fold -2 | grep -v '^.$' | sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold2.csv
       - name: Run autograding tests
         run: python3 -m pytest --timeout=30
