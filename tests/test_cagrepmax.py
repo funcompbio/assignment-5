@@ -35,7 +35,7 @@ def test_dinuc() :
 
             ## call from the command line to verify whether the program correctly
             ## transfers command-line arguments to the main() function
-            cmd = ['python3', 'src/cagrepmax.py', f]
+            cmd = ['python3', 'src/cagrepmax.py', "FASTA/%s" %(f)]
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             o, e = proc.communicate()
 
