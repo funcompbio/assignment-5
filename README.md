@@ -1,14 +1,14 @@
 [![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
 
-# Assignment 5 - FCB 2021
-### Deadline: 05/11/2021 - 23:59
+# Assignment 5 - FCB 2022
+### Deadline: 04/11/2022 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
-the organization account for FCB in the academic year 2021-22 at
-[https://github.com/funcompbio2021](https://github.com/funcompbio2021)
+the organization account for FCB in the academic year 2022-23 at
+[https://github.com/funcompbio2022](https://github.com/funcompbio2022)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-5` and your
@@ -21,10 +21,33 @@ assignment, the version available at the deadline will be retrieved. If the
 first version available is posterior to the deadline, then the mark of the
 assignment will have a penalty.
 
+To complete your submission (see rubric below) please **agree to the following
+academic integrity statement** by editing this README file and placing the
+letter `X` between the squared brackets preceding the statement:
+
+- [] The work here submitted as been entirely developed by myself and is the
+  result of my own work.
+
 ## Description
 
-The goal of this assignment is to **implement in Python a simplified SIR
-model of spreading infectious diseases.**
+[Huntington's disease](https://en.wikipedia.org/wiki/Huntington%27s_disease) is
+an hereditary genetic disorder, caused by an expansion of consecutive repetitions
+of the `CAG` tri-nucleotide in a gene named after the disease, the
+[Huntingtin (_HTT_)](https://www.ncbi.nlm.nih.gov/gene/3064) gene. Unaffected
+individuals usually have no more than 30 consecutive repetitions of the `CAG`
+tri-nucleotide in the _HTT_ gene, while affected individuals usually have more
+than 37.
+
+The goal of this assignment is to **implement in Python that given the name
+of a FASTA file containing the DNA sequence of the _HTT_ gene of an individual,
+it calculates the maximum number of consecutive `CAG` tri-nucleotide repetitions
+found in the DNA sequence**. It is important that the program does *not* ask for
+the name of the FASTA file, but instead it takes it as the first argument from
+the Unix shell command-line call, i.e., by doing something like:
+
+```
+$ python src/cagrepmax.py <filename>
+```
 
 This assignment incorporates an autograding feature using a so-called
 [GitHub Actions Worflow](https://github.com/features/actions), which will
@@ -37,77 +60,55 @@ green with the message `passing` otherwise. You may click on badge to
 look at output of the autograding tests to understand why it has failed,
 if that was the case. This feature provides you with
 [formative assessment](https://en.wikipedia.org/wiki/Formative_assessment)
-and to work with it you need to edit your program in the existing files
-`src/sir.py` and `src/sirv.py`, and leave the rest of the files and directory
-structure intact. The files `src/sir.py` and `src/sirv.py` are templates that
-contain instructions written as comments, indicating where should you
+and to work with it you need to edit your program in the existing file
+`src/cagrepmax.py` and leave the rest of the files and directory
+structure intact. The file `src/cagrepmax.py` is a template that
+contains instructions written as comments, indicating where should you
 edit your code.
 
-In the first script `src/sir.py` you should implement the simplified
-SIR model corresponding to the differential equation:
-
-<img src="https://render.githubusercontent.com/render/math?math=\frac{dI}{dt}=\rho\cdot I \cdot (1 - I) - \alpha \cdot I">
-
-This model requires the specification of two constant parameters,
-`rho` and `alpha`, which the provided template script takes as
-arguments in the command line. For instance, if we want to simulate
-this model using `rho=1.5` and `alpha=0.9`, we should call it as follows:
-
-```
-$ python sir.py 1.5 0.9
-```
-
-In the second script `src/sirv.py` you should implement the simplified
-SIR model that incorporates the fraction of the population `R` that has
-been **vaccinated**, corresponding to the differential equation:
-
-<img src="https://render.githubusercontent.com/render/math?math=\frac{dI}{dt}=\rho\cdot I \cdot (1 - R - I) - \alpha \cdot I">
-
-Next to the previous constant parameters `rho` and `alpha`, this model
-requires the specification of a third one `R`, corresponding to the
-fraction of the population that has been vaccinated. For instance, if
-we want to simulate this model using `rho=1.5`, `alpha=0.9` and
-`R=0.1`, we should call it as follows:
+The template repo and autograding feature will test your program with the DNA
+sequences of the [Huntingtin (_HTT_)](https://www.ncbi.nlm.nih.gov/gene/3064)
+gene for six simulated (i.e., not real) individuals, where three of them are
+affected by
+[Huntington's disease](https://en.wikipedia.org/wiki/Huntington%27s_disease)
+and three are healthy. These DNA sequences are stored as FASTA files in the
+directory called `FASTA` and their names contain the maximum number of CAG
+consecutive repeats found in each file. For example, to test in your own
+computer whether your Python program works fine with one of those sequences,
+first change your current working directory to the top directory of the your
+local copy of this GitHub repo and type:
 
 ```
-$ python sirv.py 1.5 0.9 0.1
+$ python src/cagrepmax.py FASTA/affected_individual1_40_CAGs.fa
 ```
 
-If you run this simulation with R values `R={0, 0.1, 0.2, 0.3 ,0.4}`,
-and plot the resulting curves together, you should be getting the graph
-shown below (see the _matplotlib_ documentation for how to add
-[axis labels](https://matplotlib.org/3.1.0/gallery/pyplots/fig_axes_labels_simple.html)
-and [legends](https://matplotlib.org/tutorials/intermediate/legend_guide.html)).
-
-![](sirv.png)
-
-Seeing this plot, think about why the curves change with the fraction
-of vaccinated population `R` and why is not necessary to vaccinate
-the entire population to end with the simulated infectious disease.
-**You need not to add your own plots to the repo, you should produce
-these plots only for your own understanding of the mathematics behind**.
+If the program works as expected, for this particular example affected by
+the disease, it should output the number 40, as indicated in the FASTA filename.
+For the autograding tool to give you the correct feedback, it is important that
+your program **only outputs** a number. You should make sure that your program
+gives the expected result with every of the sequence files you can find in the
+`FASTA` directory.
 
 Your assignment repo should have the following files:
 
   1. This `README.md` file.
-  2. The `sirv.png` image file with the plot shown above.
   2. The `src` directory with the initial files of the assignment repo.
-  3. The `test` directory with the initial files of the assignment repo.
+  3. The `tests` directory with the initial files of the assignment repo.
+  4. The `FASTA` directory with the initial files of the assignment repo.
 
 Eventually, you may encounter that Python automatically creates a directory called
 `__pycache__`, you may ignore that directory since this template is already
 prepared to ignore that directory by including it into a `.gitignore` file that
 informs Git to avoid putting certain files under version control. In any case,
-**you should only be editing the files `src/sir.py` and `src/sirv.py`**.
+**you should only be editing the file `src/cagrepmax.py` and `README.md` to agree
+to the academic integrity statement**.
 
 ## Evaluation rubric
 
 The rubric to evaluate this assignment consists of the following items:
 
+  * Did you agree to the academic integrity statement?
   * Does the assignment contain the required files?
-  * Does the Python program `src/sir.py` runs without errors?
-  * Does the Python program `src/sir.py` runs the simulation of the corresponding model correctly?
-  * Does the Python program `src/sir.py` passes all autograding tests?
-  * Does the Python program `src/sirv.py` runs without errors?
-  * Does the Python program `src/sirv.py` runs the simulation of the corresponding model correctly?
-  * Does the Python program `src/sirv.py` passes all autograding tests?
+  * Does the Python program `src/cagrepmax.py` runs without errors?
+  * Does the Python program `src/cagrepmax.py` calculates the length of the
+  * Does the Python program `src/cagrepmax.py` passes all autograding tests?
