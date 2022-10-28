@@ -38,12 +38,12 @@ individuals usually have no more than 30 consecutive repetitions of the `CAG`
 tri-nucleotide in the _HTT_ gene, while affected individuals usually have more
 than 37.
 
-The goal of this assignment is to **implement in Python that given the name
-of a FASTA file containing the DNA sequence of the _HTT_ gene of an individual,
-it calculates the maximum number of consecutive `CAG` tri-nucleotide repetitions
-found in the DNA sequence**. It is important that the program does *not* ask for
-the name of the FASTA file, but instead it takes it as the first argument from
-the Unix shell command-line call, i.e., by doing something like:
+The goal of this assignment is to **implement a program in Python that given the
+name of a FASTA file containing the DNA sequence of the _HTT_ gene of an
+individual, it calculates the maximum number of consecutive `CAG` tri-nucleotide
+repetitions found in the DNA sequence**. It is important that the program does
+*not* ask for the name of the FASTA file, but instead it takes it as the first
+argument from the Unix shell command-line call, i.e., by doing something like:
 
 ```
 $ python src/cagrepmax.py <filename>
@@ -56,8 +56,8 @@ correctly working after every _push_. More concretely, a few minutes after
 you _pushed_ your changes to your remote GitHub repo, the badge labeled
 `FCB-Python-autograding` on top of this README file will be red and display
 the message `failing` if the autograding has not been successful, and
-green with the message `passing` otherwise. You may click on badge to
-look at output of the autograding tests to understand why it has failed,
+green with the message `passing` otherwise. You may click on the badge to
+look at the output of the autograding tests to understand why it has failed,
 if that was the case. This feature provides you with
 [formative assessment](https://en.wikipedia.org/wiki/Formative_assessment)
 and to work with it you need to edit your program in the existing file
@@ -66,17 +66,17 @@ structure intact. The file `src/cagrepmax.py` is a template that
 contains instructions written as comments, indicating where should you
 edit your code.
 
-The template repo and autograding feature will test your program with the DNA
+The template repo and autograding feature will test your program with DNA
 sequences of the [Huntingtin (_HTT_)](https://www.ncbi.nlm.nih.gov/gene/3064)
 gene for six simulated (i.e., not real) individuals, where three of them are
 affected by
 [Huntington's disease](https://en.wikipedia.org/wiki/Huntington%27s_disease)
-and three are healthy. These DNA sequences are stored as FASTA files in the
-directory called `FASTA` and their names contain the maximum number of CAG
-consecutive repeats found in each file. For example, to test in your own
-computer whether your Python program works fine with one of those sequences,
-first change your current working directory to the top directory of the your
-local copy of this GitHub repo and type:
+and the other three are healthy. These DNA sequences are stored as FASTA files
+in the directory called `FASTA` and their names contain the maximum number of
+`CAG` consecutive repeats found in the stored DNA sequence. For example, to
+test in your own computer whether your Python program works fine with one of
+those sequences, first change your current working directory to the top
+directory of the your local copy of this GitHub repo and type:
 
 ```
 $ python src/cagrepmax.py FASTA/affected_individual1_40_CAGs.fa
@@ -85,7 +85,7 @@ $ python src/cagrepmax.py FASTA/affected_individual1_40_CAGs.fa
 If the program works as expected, for this particular example affected by
 the disease, it should output the number 40, as indicated in the FASTA filename.
 For the autograding tool to give you the correct feedback, it is important that
-your program **only outputs** a number. You should make sure that your program
+your program **only outputs a number**. You should make sure that your program
 gives the expected result with every of the sequence files you can find in the
 `FASTA` directory.
 
@@ -110,5 +110,6 @@ The rubric to evaluate this assignment consists of the following items:
   * Did you agree to the academic integrity statement?
   * Does the assignment contain the required files?
   * Does the Python program `src/cagrepmax.py` runs without errors?
-  * Does the Python program `src/cagrepmax.py` calculates the length of the
+  * Does the Python program `src/cagrepmax.py` correctly calculates the maximum
+    number of consecutive `CAG` tri-nucleotide repetitions found in a DNA sequence?
   * Does the Python program `src/cagrepmax.py` passes all autograding tests?
