@@ -8,12 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python modules
         run: sudo -H pip3 install pytest pytest-timeout
+      - name: Checking for academic integrity statement
+        run: RED='\033[0;31m'; NC='\033[0m' ; x=`grep 'The work here submitted' README.md | perl -nae 'print $F[1]'` ; if [ "$x" != [X] ] && [ "$x" != [x] ] ; then { if [ "$x" == [\"X\"] ] || [ "$x" == [\'X\'] ] || [ "$x" == [\"x\"] ] || [ "$x" == [\'x\'] ] ; then echo -e "${RED}DO NOT USE QUOTE CHARACTERS WHEN CHECKING THE ACADEMIC INTEGRITY STATEMENT${NC}" ; else echo -e "${RED}YOU HAVE NOT YET AGREED TO THE ACADEMIC INTEGRITY STATEMENT (SEE README.md FILE)${NC}" ; fi ; exit 1 ; } ; fi
       - name: Checking for syntax errors
         run: python3 -m py_compile src/cagrepmax.py ; rm -f src/cagrepmax.pyc
       - name: Checking for FASTA files
-        run: fnames=(affected_individual1_40_CAGs.fa affected_individual2_54_CAGs.fa affected_individual3_87_CAGs.fa unaffected_individual1_22_CAGs.fa unaffected_individual2_27_CAGs.fa unaffected_individual3_28_CAGs.fa) ; md5cs=(833a31c25eb852b42ca23b4e2408b26b c37ac0c3b4f59bb9b8e84d17864414c6 c8f65b8ef1f9f9a520e8cb24207a5ead a6866cf3c972a77cf5e8ee8aca7d4c80 a5624c7fbb551fee11462b5c36b08249 a27ccd7d137f08e4a7fbb92c7d28328b) ; for i in `seq 0 $((${#fnames[@]}-1))` ; do { if [ -e FASTA/${fnames[$i]} ]; then { if [ `md5sum FASTA/${fnames[$i]} | cut -d ' ' -f 1` == ${md5cs[$i]} ] ; then exit 0 ; else { echo WRONG FILE FASTA/${fnames[$i]} >&2 ; exit 1 ; } fi } ; else { echo MISSING FILE FASTA/${fnames[$i]} >&2 ; exit 1 ; } ; fi ; } ; done
+        run: RED='\033[0;31m'; NC='\033[0m' ; fnames=(affected_individual1_40_CAGs.fa affected_individual2_54_CAGs.fa affected_individual3_87_CAGs.fa unaffected_individual1_22_CAGs.fa unaffected_individual2_27_CAGs.fa unaffected_individual3_28_CAGs.fa) ; md5cs=(833a31c25eb852b42ca23b4e2408b26b c37ac0c3b4f59bb9b8e84d17864414c6 c8f65b8ef1f9f9a520e8cb24207a5ead a6866cf3c972a77cf5e8ee8aca7d4c80 a5624c7fbb551fee11462b5c36b08249 a27ccd7d137f08e4a7fbb92c7d28328b) ; for i in `seq 0 $((${#fnames[@]}-1))` ; do { if [ -e FASTA/${fnames[$i]} ]; then { if [ `md5sum FASTA/${fnames[$i]} | cut -d ' ' -f 1` == ${md5cs[$i]} ] ; then exit 0 ; else { echo -e "${RED}WRONG FILE FASTA/${fnames[$i]}${NC}" >&2 ; exit 1 ; } fi } ; else { echo -e "${RED}MISSING FILE FASTA/${fnames[$i]}${NC}" >&2 ; exit 1 ; } ; fi ; } ; done
       - name: Run autograding tests
         run: python3 -m pytest --timeout=30

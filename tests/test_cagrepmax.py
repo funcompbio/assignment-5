@@ -3,7 +3,6 @@ import os
 import sys
 import re
 import pytest
-import src.cagrepmax
 
 class color:
     ERROR = '\033[91m'
@@ -52,6 +51,6 @@ def test_dinuc() :
                 errmsg = errmsg.split('\n')
                 for e in errmsg :
                     print(color.ERROR+color.BOLD+e+color.END, file=sys.stderr)
-                r = -1
+                raise Exception("Autograding workflow problem")
             
         assert r == n

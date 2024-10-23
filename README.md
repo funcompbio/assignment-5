@@ -1,14 +1,14 @@
 [![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
 
-# Assignment 5 - FCB 2022
-### Deadline: 04/11/2022 - 23:59
+# Assignment 5 - FCB 2024
+### Deadline: 28/10/2024 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
-the organization account for FCB in the academic year 2022-23 at
-[https://github.com/funcompbio2022](https://github.com/funcompbio2022)
+the organization account for FCB in the academic year 2023-24 at
+[https://github.com/FCB-2024](https://github.com/FCB-2024)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-5` and your
@@ -31,8 +31,8 @@ letter `X` between the squared brackets preceding the statement:
 ## Description
 
 [Huntington's disease](https://en.wikipedia.org/wiki/Huntington%27s_disease) is
-an hereditary genetic disorder, caused by an expansion of consecutive repetitions
-of the `CAG` tri-nucleotide in a gene named after the disease, the
+an hereditary genetic disorder, caused by an expansion of consecutive
+repetitions of the `CAG` tri-nucleotide in a gene named after the disease, the
 [Huntingtin (_HTT_)](https://www.ncbi.nlm.nih.gov/gene/3064) gene. Unaffected
 individuals usually have no more than 30 consecutive repetitions of the `CAG`
 tri-nucleotide in the _HTT_ gene, while affected individuals usually have more
@@ -107,7 +107,8 @@ to the academic integrity statement**.
 
 The rubric to evaluate this assignment consists of the following items:
 
-  * Did you agree to the academic integrity statement?
+  * Did you use the GitHub user profile you provided in the first assignment?
+  * Did you properly agree to the academic integrity statement?
   * Does the assignment contain the required files?
   * Does the Python program `src/cagrepmax.py` runs without errors?
   * Does the Python program `src/cagrepmax.py` correctly calculates the maximum
