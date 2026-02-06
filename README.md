@@ -1,14 +1,14 @@
 [![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
 
-# Assignment 5 - FCB 2024
-### Deadline: 28/10/2024 - 23:59
+# Assignment 5 - FCB 2026
+### Deadline: 13/02/2026 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
 the organization account for FCB in the academic year 2023-24 at
-[https://github.com/FCB-2024](https://github.com/FCB-2024)
+[https://github.com/FCB-2026](https://github.com/FCB-2026)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-5` and your
